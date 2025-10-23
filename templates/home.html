@@ -1,5 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>hobanna</h1>
+    <h1 class="text-center">Готель Hobanna</h1>
+    <div class="room-list">
+    {% for room in rooms %}
+<div class="card" style="width: 18rem;">
+  <img src="{{room.image.url}}" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">Номер {{room.title}}</h5>
+    <p class="card-text">{{room.copacity}} грн/добу</p>
+    <a href="#" class="btn btn-primary">Забронювати</a>
+  </div>
+</div>
+    {% endfor %}
+    </div>
 {% endblock  %}
