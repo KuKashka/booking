@@ -29,3 +29,4 @@ class RegisterForm(UserCreationForm):
         for field in self.fields.values():
             field.widget.attrs.update({'class': 'form-control mb-3'})
 
+#opa
