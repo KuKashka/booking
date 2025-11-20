@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class User(AbstractUser):
-    phone = models.CharField
+    phone = models.CharField(max_length=100)
     date_of_birth = models.DateField(null=True, blank=True)
     email = models.EmailField(unique=True)
 

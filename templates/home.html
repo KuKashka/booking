@@ -9,7 +9,7 @@
   <div class="card-body">
     <h5 class="card-title">Номер {{room.title}}</h5>
     <p class="card-text">{{room.copacity}} грн/добу</p>
-    <a href="#" class="btn btn-primary">Забронювати</a>
+    <a href="{% url 'room_page' room.id %}" class="btn btn-primary">Забронювати</a>
   </div>
 </div>
 {% endfor %}

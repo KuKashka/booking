@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %} Кімната {% endblock %}
+
+{% block content %}
+<h1 class="bg-primary p-3 mb-5 text-center text-white">Кімната</h1>
+<div class="card" style="width: 18rem;">
+    {% if room.image  %}
+        <img src="{{room.image.url}}" class="card-img-top">
+    {% endif %}
+    <div class="card-body">
+        <h5 class="card-title">Номер {{room.title}}</h5>
+        <p class="card-text">{{room.price}} грн/добу</p>
+        <p class="card-text">Місць: {{room.capacity}}</p>
+        
+    </div>
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div class="row my-3">
+        <div class="col">
+            <label for="checkin">Дата заїзду</label>
+            <input type="date" name="check_in" required class="form-control" id="checkin" placeholder="Дата заїзду" aria-label="First name">
+        </div>
+        <div class="col">
+            <label for="checkout">Дата виїзду</label>
+            <input type="date" name="check_out" required class="form-control" id="checkout" placeholder="Дата виїзду" aria-label="Last name">
+        </div>
+    </div>
+    <div class="row my-3">
+        <div class="col">
+            <label for="guests">Кількість осіб</label>
+            <input type="number" name="guests" required class="form-control" id="guests" placeholder="Кількість осіб" aria-label="Кількість осіб">
+        </div>
+        <div class="col">
+            <label for="phone">Номер телефону</label>
+            <input type="tel" name="phone" required class="form-control" id="phone" placeholder="Номер телефону" aria-label="Номер телефону">
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Забронювати</button>
+
+</form>
+{% endblock %}
